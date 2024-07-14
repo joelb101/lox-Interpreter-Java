@@ -1,4 +1,5 @@
-package interpreter.lox;
+//package interpreter.lox;
+package bin;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -7,8 +8,8 @@ import java.util.List;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import interpreter.lox.Token;
-import interpreter.lox.Scanner;
+import bin.Token;
+import bin.Scanner;
 
 public class Lox{
     static boolean hadError = false;

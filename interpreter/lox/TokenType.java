@@ -1,4 +1,4 @@
-package interpreter.lox;
+package bin;
 
 public enum TokenType {
 
