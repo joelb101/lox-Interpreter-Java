@@ -16,7 +16,7 @@ abstract class Expr{
 			this.right = right;
 		}
 
-		@override
+		@Override
 		<R> R accept(Visitor<R> visitor){
 			return visitor.visitBinaryExpr(this);
 		}
@@ -30,7 +30,7 @@ abstract class Expr{
 			this.expression = expression;
 		}
 
-		@override
+		@Override
 		<R> R accept(Visitor<R> visitor){
 			return visitor.visitGroupingExpr(this);
 		}
@@ -42,7 +42,7 @@ abstract class Expr{
 			this.value = value;
 		}
 
-		@override
+		@Override
 		<R> R accept(Visitor<R> visitor){
 			return visitor.visitLiteralExpr(this);
 		}
@@ -55,7 +55,7 @@ abstract class Expr{
 			this.right = right;
 		}
 
-		@override
+		@Override
 		<R> R accept(Visitor<R> visitor){
 			return visitor.visitUnaryExpr(this);
 		}
