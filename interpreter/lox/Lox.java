@@ -12,7 +12,10 @@ import bin.Token;
 import bin.Scanner;
 
 public class Lox{
+	 
+	 private static final Interpreter interpreter = new Interpreter();
     static boolean hadError = false;
+    static boolean hadRuntimeError = false;
 
     public static void main(String[] args) throws IOException{
 
@@ -35,6 +38,9 @@ public class Lox{
         if(hadError){
             System.exit(20);
         }
+        if(hadRuntimeError){
+        		System.exit(22);
+        }
     }
 
     private static void runPrompt() throws IOException{
@@ -56,14 +62,11 @@ public class Lox{
 
         Parser parser = new Parser(tokens);
         Expr expression = parser.parse();
-
-        if(hadError)
-            return;
+			
+		  interpreter.interpret(expression);
 
         System.out.println(new AstPrinter().print(expression));
 
-        //for(Token token : tokens){
-           // System.out.println(token);
     }
 
     static void error(int line, String msg){
@@ -82,5 +85,10 @@ public class Lox{
 		else{
 			report(token.line," at '"+token.lexeme+"'",message);
 		}
+	}
+	
+	static void runtimeError(RuntimeError error){
+		System.err.println(error.getMessage() + "\n[line " + error.token.line + "]");
+		hadRuntimeError = true;
 	}
 }
