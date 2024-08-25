@@ -1,4 +1,3 @@
-//package interpreter.lox;
 package bin;
 
 import java.io.BufferedReader;
